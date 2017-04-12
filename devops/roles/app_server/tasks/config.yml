@@ -1,0 +1,17 @@
+- name: Install system packages
+  apt: pkg={{ item }} state=present
+  with_items:
+    - python-pip
+ 
+- name: Ensure pip is up-to-date
+  command: pip install --upgrade pip
+ 
+- name: Install application requirements
+      # Due to a bug in Ansible local connection mode, have to specify
+      # app user as sudo user ("sudo: no" has no effect).
+  sudo: yes
+  pip: >
+        requirements=/vagrant/devops/requirements.txt
+        extra_args='--extra-index-url https://pypi.fury.io/hxcgm8CvQzmL3QL6ZGGH/jumo/'
+  tags:
+    - pip

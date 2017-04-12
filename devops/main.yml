@@ -1,0 +1,6 @@
+- hosts: app_server
+  sudo: yes
+  roles:
+    - app_server
+  tags:
+    - app
