@@ -4,5 +4,5 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
  
  
 urlpatterns = [
-    url(r'^$', UssdSimulator.as_view(), name='ussd_simulator'),
+    url(r'^$', UssdSimulator.as_view(), name='UssdSimulatord_simulator'),
 ]
